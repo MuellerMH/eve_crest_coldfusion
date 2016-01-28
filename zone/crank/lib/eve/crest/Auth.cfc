@@ -17,7 +17,8 @@ component {
 	this.code = "";
 	this.token = "";
 
-	public function init(){
+	public function init(string callBackUrl = ""){
+		this.APP_CALLBACK = arguments.callBackUrl;
 		return this;
 	}
 
@@ -37,7 +38,6 @@ component {
 
 	/**
 	 * Second Step to Auth with EVEOnline this code must procesed on the Redirect URL 
-	 * @return {[type]} struct [description] contains the Logged User Information
 	 * @param  {[type]} string code         [description] this is the code form EVEOnline send too your redirect URL in URL Param &code 
 	 */
 	public function getToken(string code=="") {
@@ -51,7 +51,6 @@ component {
 		var p = h.send().getPrefix();
 		if(p.status_code == 200) {
 			this.token = deserializeJSON(p.filecontent).access_token;
-			return this.setUser();
 		}
 	}
 
