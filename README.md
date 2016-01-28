@@ -17,7 +17,7 @@ Api to Call the EVE CRest Api in ColdFusion
 ```
 - some page -
 ```
-<cfset eveAuth = new zone.crank.lib.eve.crest.Public(SESSION.token) />
-<cfset alliances = eveAuth.getAlliances() />
+<cfset eveApi = new zone.crank.lib.eve.crest.Public(SESSION.token) />
+<cfset alliances = eveApi.getAlliances() />
 <cfdump var="#alliances" />
 ```
